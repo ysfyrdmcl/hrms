@@ -1,5 +1,6 @@
+rootProject.name = 'HR-Management'
 include 'user-service'
 include 'main-service'
 include 'config-server'
 include 'api-gateway'
-
+include 'auth-service'
