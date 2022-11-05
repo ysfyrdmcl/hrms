@@ -1,0 +1,19 @@
+server:
+  port: 9091
+
+spring:
+  datasource:
+    url: 'jdbc:postgresql://localhost:5432/HRDB'
+    username: 'postgres'
+    password: '123'
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+raceapplication:
+  url:
+    auth: http://localhost:9090/
+    user: http://localhost:9091/
+    main: http://localhost:9092/

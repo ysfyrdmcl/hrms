@@ -11,18 +11,15 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Data
 @Builder
+@Table(name = "managers")
 @Entity
-@Table(name = "addresses")
-public class Address{
+public class Manager extends Person{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "address_id")
-    private Long id;
-    private String street;
-    private String city;
-    private String province;
-    @Column(name = "zip_code")
-    private String zipCode;
-//    @Column(name = "employee_id")
-//    private Long employeeId;
+    @Column(name = "manager_id")
+    Long id;
+    private Long addressId;
+
+
+
 }

@@ -11,18 +11,14 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Data
 @Builder
+@Table(name = "professions")
 @Entity
-@Table(name = "addresses")
-public class Address{
+public class Profession {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "address_id")
+    @Column(name = "profession_id")
     private Long id;
-    private String street;
-    private String city;
-    private String province;
-    @Column(name = "zip_code")
-    private String zipCode;
-//    @Column(name = "employee_id")
-//    private Long employeeId;
+    @Column(name = "profession_name")
+    private String professionName;
+
 }

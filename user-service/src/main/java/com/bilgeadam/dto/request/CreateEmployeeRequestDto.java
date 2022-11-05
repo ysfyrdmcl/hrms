@@ -15,7 +15,7 @@ public class CreateEmployeeRequestDto {
     @NotNull
     @NotBlank
     @NotEmpty
-    @Pattern(regexp = "[a-zA-Z]")
+//    @Pattern(regexp = "[a-zA-Z]")
     private String firstName;
     private String middleName;
     @NotNull
