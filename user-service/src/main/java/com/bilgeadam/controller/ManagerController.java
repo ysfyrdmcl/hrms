@@ -8,10 +8,7 @@ import com.bilgeadam.service.EmployeeService;
 import com.bilgeadam.service.ManagerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -33,6 +30,7 @@ public class ManagerController {
             throw new UserManagerException(ErrorType.EMPLOYEE_DONT_CREATE);
         }
     }
+    @GetMapping("/update")
     public ResponseEntity<Boolean> updateEmployee(@RequestBody @Valid Long id,UpdateEmployeeRequestDto updateEmployeeRequestDto) {
         try {
             employeeService.updateEmployee(id,updateEmployeeRequestDto);
