@@ -16,4 +16,7 @@ public class ApiUrls {
     public static final String ADDRESS = "/address";
     public static final String DEPARTMENT = "/department";
     public static final String MANAGER = "/manager";
+    public static final String FIND_SUMMARY_INFO_BY_ID = "/FindSummaryInfoById";
+    public static final String FIND_SUMMARY_INFO = "/FindSummaryInfo";
+    public static final String FIND_ALL_BY_DEPARTMENT_ID = "/FindAllByDepartmentId";
 }
