@@ -2,9 +2,12 @@ package com.bilgeadam.service;
 
 
 import com.bilgeadam.repository.IManagerRepository;
+import com.bilgeadam.repository.entity.Employee;
 import com.bilgeadam.repository.entity.Manager;
 import com.bilgeadam.utility.ServiceManager;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class ManagerService extends ServiceManager<Manager, Long> {
@@ -14,4 +17,5 @@ public class ManagerService extends ServiceManager<Manager, Long> {
         super(managerRepository);
         this.managerRepository = managerRepository;
     }
+
 }

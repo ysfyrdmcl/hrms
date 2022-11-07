@@ -1,5 +1,6 @@
 package com.bilgeadam.dto.request;
 
+import com.bilgeadam.repository.enums.State;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -22,6 +23,7 @@ public class CreateEmployeeRequestDto {
     @NotBlank
     @NotEmpty
     private String lastName;
+    private State state = State.ACTIVE;
     @Email
     @NotNull
     @NotBlank

@@ -23,10 +23,5 @@ public class Employee extends Person{
     Long id;
     private Long addressId;
     private Long departmentId;
-//    @Builder
-//    public Employee(String firstName)
-//    {
-//        super(firstName);
-//
-//    }
+    private Long professionId;
 }
