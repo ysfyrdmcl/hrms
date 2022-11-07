@@ -1,24 +1,7 @@
-#server:
-#  port: 9091
-#
-#spring:
-#  datasource:
-#    driver-class-name: org.postgresql.Driver
-#    url: jdbc:postgresql://localhost:5432/HRDB
-#    username: postgres
-#    password: 123
-#
-#
-#raceapplication:
-#  url:
-#    auth: http://localhost:9090/
-#    main: http://localhost:9092/
-#    user: http://localhost:9091/
-
 spring:
   cloud:
     config:
-      uri: 'http://localhost:8888'
+      uri: http://localhost:8888
   config:
     import: "configserver:"
   application:

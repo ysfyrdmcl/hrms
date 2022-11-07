@@ -18,14 +18,5 @@ import static com.bilgeadam.constants.ApiUrls.*;
 public class EmployeeController {
     private final EmployeeService employeeService;
 
-    @PostMapping(NEW_CREATE_EMPLOYEE)
-    public ResponseEntity<Boolean> createEmployee(@RequestBody @Valid CreateEmployeeRequestDto createEmployeeRequestDto)
-    {
-        try {
-            employeeService.createEmployee(createEmployeeRequestDto);
-            return ResponseEntity.ok(true);
-        }catch (Exception e){
-            throw new UserManagerException(ErrorType.EMPLOYEE_DONT_CREATE);
-        }
-    }
+
 }

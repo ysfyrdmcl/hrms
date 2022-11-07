@@ -2,11 +2,14 @@ package com.bilgeadam.service;
 
 
 import com.bilgeadam.dto.request.CreateEmployeeRequestDto;
+import com.bilgeadam.dto.request.UpdateEmployeeRequestDto;
 import com.bilgeadam.repository.IEmployeeRepository;
 import com.bilgeadam.repository.entity.Employee;
 import com.bilgeadam.repository.entity.Person;
 import com.bilgeadam.utility.ServiceManager;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class EmployeeService extends ServiceManager<Employee, Long> {
@@ -17,13 +20,23 @@ public class EmployeeService extends ServiceManager<Employee, Long> {
         this.employeeRepository = employeeRepository;
     }
 
-    public Employee createEmployee(CreateEmployeeRequestDto createEmployeeRequestDto)
-    {
+    public Employee createEmployee(CreateEmployeeRequestDto createEmployeeRequestDto) {
 
         return save(Employee.builder().firstName(createEmployeeRequestDto.getFirstName())
                 .lastName(createEmployeeRequestDto.getLastName())
                 .emailAddress(createEmployeeRequestDto
-                .getEmailAddress()).build());
+                        .getEmailAddress()).build());
 
+    }
+
+    public Employee updateEmployee(Long id, UpdateEmployeeRequestDto updateEmployeeRequestDto) {
+        Optional<Employee> employee = employeeRepository.findById(id);
+        if (employee.isPresent()) {
+            employee.get().setEmailAddress(updateEmployeeRequestDto.getEmailAddress());
+            employee.get().setPhoneNumber(updateEmployeeRequestDto.getPhoneNumber());
+            employee.get().setProfilePhoto(updateEmployeeRequestDto.getProfilePhoto());
+            employee.get().setState(updateEmployeeRequestDto.getState());
+        }
+        return null;
     }
 }

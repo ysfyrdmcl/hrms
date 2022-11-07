@@ -1,8 +1,7 @@
 package com.bilgeadam.service;
 
-import com.bilgeadam.repository.IAddressRepository;
+
 import com.bilgeadam.repository.IManagerRepository;
-import com.bilgeadam.repository.entity.Address;
 import com.bilgeadam.repository.entity.Manager;
 import com.bilgeadam.utility.ServiceManager;
 import org.springframework.stereotype.Service;
