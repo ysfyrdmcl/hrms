@@ -1,7 +1,8 @@
 package com.bilgeadam;
 
-public class Deneme {
+public class TestApplicationCopyBranchYusuf {
+    String temp = "test";
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+
     }
 }

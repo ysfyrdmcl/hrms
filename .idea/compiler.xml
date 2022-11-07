@@ -18,24 +18,6 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="17">
-      <module name="auth-service" target="17" />
-      <module name="auth-service.main" target="17" />
-      <module name="auth-service.test" target="17" />
-      <module name="proje" target="17" />
-      <module name="proje.api-gateway" target="17" />
-      <module name="proje.api-gateway.main" target="17" />
-      <module name="proje.api-gateway.test" target="17" />
-      <module name="proje.config-server" target="17" />
-      <module name="proje.config-server.main" target="17" />
-      <module name="proje.config-server.test" target="17" />
-      <module name="proje.main" target="17" />
-      <module name="proje.main-service" target="17" />
-      <module name="proje.main-service.main" target="17" />
-      <module name="proje.main-service.test" target="17" />
-      <module name="proje.test" target="17" />
-      <module name="proje.user-service" target="17" />
-      <module name="proje.user-service.main" target="17" />
-      <module name="proje.user-service.test" target="17" />
       <module name="user-service" target="17" />
     </bytecodeTargetLevel>
   </component>
