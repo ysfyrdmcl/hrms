@@ -25,8 +25,19 @@ public class EmployeeService extends ServiceManager<Employee, Long> {
 
     public Employee createEmployee(CreateEmployeeRequestDto createEmployeeRequestDto) {
 
-        return save(Employee.builder().firstName(createEmployeeRequestDto.getFirstName())
+        return save(Employee.builder().identityNumber(createEmployeeRequestDto.getIdentityNumber())
+                .firstName(createEmployeeRequestDto.getFirstName())
+                .middleName(createEmployeeRequestDto.getMiddleName())
                 .lastName(createEmployeeRequestDto.getLastName())
+                .profilePhoto(createEmployeeRequestDto.getProfilePhoto())
+                .birthDay(createEmployeeRequestDto.getBirthDay())
+                .startDate(createEmployeeRequestDto.getStartDate())
+                .emailAddress(createEmployeeRequestDto.getEmailAddress())
+                .phoneNumber(createEmployeeRequestDto.getPhoneNumber())
+                .gender(createEmployeeRequestDto.getGender())
+                .professionId(createEmployeeRequestDto.getProfessionId())
+                .departmentId(createEmployeeRequestDto.getDepartmentId())
+                .addressId(createEmployeeRequestDto.getAddressId())
                 .state(createEmployeeRequestDto.getState())
                 .emailAddress(createEmployeeRequestDto
                         .getEmailAddress()).build());

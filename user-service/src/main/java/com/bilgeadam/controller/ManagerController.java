@@ -27,8 +27,18 @@ public class ManagerController {
     private final ManagerService managerService;
     private final EmployeeService employeeService;
 
+//    @PostMapping(NEW_CREATE_EMPLOYEE)
+//    public ResponseEntity<Boolean> createEmployee(@RequestBody @Valid CreateEmployeeRequestDto createEmployeeRequestDto) {
+//        try {
+//            employeeService.createEmployee(createEmployeeRequestDto);
+//            return ResponseEntity.ok(true);
+//        } catch (Exception e) {
+//            throw new UserManagerException(ErrorType.EMPLOYEE_DONT_CREATE);
+//        }
+//    }
+
     @PostMapping(NEW_CREATE_EMPLOYEE)
-    public ResponseEntity<Boolean> createEmployee(@RequestBody @Valid CreateEmployeeRequestDto createEmployeeRequestDto) {
+    public ResponseEntity<Boolean> createEmployee(@RequestBody @Valid CreateEmployeeRequestDto createEmployeeRequestDto ) {
         try {
             employeeService.createEmployee(createEmployeeRequestDto);
             return ResponseEntity.ok(true);
@@ -36,6 +46,7 @@ public class ManagerController {
             throw new UserManagerException(ErrorType.EMPLOYEE_DONT_CREATE);
         }
     }
+
 
     /**
      *Update Empoloyee frontend kısmında düzenlenecek.
