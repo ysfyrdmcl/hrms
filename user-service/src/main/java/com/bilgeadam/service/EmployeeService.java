@@ -3,12 +3,15 @@ package com.bilgeadam.service;
 
 import com.bilgeadam.dto.request.CreateEmployeeRequestDto;
 import com.bilgeadam.dto.request.UpdateEmployeeRequestDto;
+import com.bilgeadam.dto.response.SummaryInfoResponseDto;
 import com.bilgeadam.repository.IEmployeeRepository;
 import com.bilgeadam.repository.entity.Employee;
 import com.bilgeadam.repository.entity.Person;
 import com.bilgeadam.utility.ServiceManager;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -44,5 +47,41 @@ public class EmployeeService extends ServiceManager<Employee, Long> {
 
     public Optional<Employee> findOptionalById(Long employeeId){
         return employeeRepository.findOptionalById(employeeId);
+    }
+
+    public List<SummaryInfoResponseDto> findSummaryInfo() {
+        List<Employee> employeeList = employeeRepository.findAll();
+        List<SummaryInfoResponseDto> summaryInfoResponseDtoList = new ArrayList<>();
+        employeeList.forEach(employee -> {
+            summaryInfoResponseDtoList.add(SummaryInfoResponseDto.builder()
+                    .firstName(employee.getFirstName())
+                    .lastName(employee.getLastName())
+                    .phoneNumber(employee.getPhoneNumber())
+                    .profilePhoto(employee.getProfilePhoto())
+                    .emailAddress(employee.getEmailAddress())
+                    .departmentId(employee.getDepartmentId())
+                    .professionId(employee.getProfessionId())
+                    .build());
+        });
+        return summaryInfoResponseDtoList;
+    }
+    public SummaryInfoResponseDto findSummaryInfoById(Long id) {
+        Optional<Employee> employee = employeeRepository.findById(id);
+        if (employee.isPresent()) {
+            return SummaryInfoResponseDto.builder()
+                    .firstName(employee.get().getFirstName())
+                    .lastName(employee.get().getLastName())
+                    .phoneNumber(employee.get().getPhoneNumber())
+                    .profilePhoto(employee.get().getProfilePhoto())
+                    .emailAddress(employee.get().getEmailAddress())
+                    .departmentId(employee.get().getDepartmentId())
+                    .professionId(employee.get().getProfessionId())
+                    .build();
+        }
+        return SummaryInfoResponseDto.builder().build();
+    }
+
+    public List<Employee> findByDepartmentId(Long id) {
+        return employeeRepository.findByDepartmentId(id);
     }
 }
