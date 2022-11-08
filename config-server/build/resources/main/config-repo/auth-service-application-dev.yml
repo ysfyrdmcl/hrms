@@ -3,9 +3,9 @@ server:
 
 spring:
   datasource:
-    url: 'jdbc:postgresql://localhost:5432/HRDB'
+    url: 'jdbc:postgresql://hrdb.postgres.database.azure.com:5432/HRDB'
     username: 'postgres'
-    password: '123'
+    password: 'HRDB12345sql'
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:

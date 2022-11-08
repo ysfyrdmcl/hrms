@@ -27,7 +27,7 @@ public abstract class Person {
     @Enumerated(EnumType.STRING)
     private Gender gender;
     @Enumerated(EnumType.STRING)
-    private State state = State.ACTIVE;
+    private State state;
 
 
 }

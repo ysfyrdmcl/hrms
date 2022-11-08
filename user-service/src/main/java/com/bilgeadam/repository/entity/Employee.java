@@ -1,9 +1,6 @@
 package com.bilgeadam.repository.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.SuperBuilder;
 import net.bytebuddy.implementation.bind.annotation.Super;
 
@@ -16,6 +13,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @Table(name = "employees")
 @Entity
+@EqualsAndHashCode(callSuper=false)
 public class Employee extends Person{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
