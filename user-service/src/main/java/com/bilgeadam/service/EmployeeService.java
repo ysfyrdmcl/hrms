@@ -4,6 +4,8 @@ package com.bilgeadam.service;
 import com.bilgeadam.dto.request.CreateEmployeeRequestDto;
 import com.bilgeadam.dto.request.UpdateEmployeeRequestDto;
 import com.bilgeadam.dto.response.SummaryInfoResponseDto;
+import com.bilgeadam.exception.ErrorType;
+import com.bilgeadam.exception.UserManagerException;
 import com.bilgeadam.repository.IEmployeeRepository;
 import com.bilgeadam.repository.entity.Employee;
 import com.bilgeadam.repository.entity.Person;
@@ -44,16 +46,18 @@ public class EmployeeService extends ServiceManager<Employee, Long> {
 
     }
 
-    public Employee updateEmployee(Long id, UpdateEmployeeRequestDto updateEmployeeRequestDto) {
+    public void updateEmployee(Long id, UpdateEmployeeRequestDto updateEmployeeRequestDto) {
         Optional<Employee> employee = employeeRepository.findById(id);
         if (employee.isPresent()) {
             employee.get().setEmailAddress(updateEmployeeRequestDto.getEmailAddress());
             employee.get().setPhoneNumber(updateEmployeeRequestDto.getPhoneNumber());
             employee.get().setProfilePhoto(updateEmployeeRequestDto.getProfilePhoto());
-
             employee.get().setState(updateEmployeeRequestDto.getState());
+            employeeRepository.save(employee.get());
         }
-        return null;
+        else{
+            throw new UserManagerException(ErrorType.EMPLOYEE_NOT_FOUND);
+        }
     }
 
     public Optional<Employee> findOptionalById(Long employeeId){

@@ -1,0 +1,19 @@
+server:
+  port: 9092
+
+spring:
+  datasource:
+    url: 'jdbc:postgresql://hrdb.postgres.database.azure.com:5432/HRDB'
+    username: 'postgres'
+    password: 'HRDB12345sql'
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+raceapplication:
+  url:
+    auth: http://localhost:9090/
+    user: http://localhost:9091/
+    main: http://localhost:9092/
