@@ -15,7 +15,7 @@ spec:
         app: react-service
     spec:
       containers:        
-        - image: ysfyrdmcl/reacttest:v001
+        - image: ysfyrdmcl/reacttest:v003
           name:  podreact
           resources:
             requests:

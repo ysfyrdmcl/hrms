@@ -15,7 +15,7 @@ spec:
         app: user-service
     spec:
       containers:
-        - image: ysfyrdmcl/hruserservice:v001
+        - image: ysfyrdmcl/hruserservice:v003
           name:  poduser
           resources:
             requests:

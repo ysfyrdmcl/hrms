@@ -23,12 +23,12 @@ import static com.bilgeadam.constants.ApiUrls.*;
 @RestController
 @RequestMapping(BASE_URL + MANAGER)
 @RequiredArgsConstructor
+@CrossOrigin("*")
 public class ManagerController {
     private final ManagerService managerService;
     private final EmployeeService employeeService;
 
     @PostMapping(NEW_CREATE_EMPLOYEE)
-    @CrossOrigin(originPatterns = "*")
     public ResponseEntity<Boolean> createEmployee(@RequestBody @Valid CreateEmployeeRequestDto createEmployeeRequestDto ) {
         try {
             employeeService.createEmployee(createEmployeeRequestDto);
@@ -41,7 +41,6 @@ public class ManagerController {
      *Update Empoloyee frontend kısmında düzenlenecek.
      */
     @PostMapping(UPDATE_EMPLOYEE)
-    @CrossOrigin(originPatterns = "*")
     public ResponseEntity<Boolean> updateEmployee(@RequestBody UpdateEmployeeRequestDto updateEmployeeRequestDto, Long id) {
         try {
             employeeService.updateEmployee(id, updateEmployeeRequestDto);
@@ -53,7 +52,6 @@ public class ManagerController {
     }
 
     @PostMapping(FIND_SUMMARY_INFO_BY_ID)
-    @CrossOrigin(originPatterns = "*")
     public ResponseEntity<SummaryInfoResponseDto> findSummaryInfoById(@RequestParam @Valid Long id) {
         try {
             return ResponseEntity.ok(employeeService.findSummaryInfoById(id));
@@ -63,7 +61,6 @@ public class ManagerController {
     }
 
     @PostMapping(FIND_SUMMARY_INFO)
-    @CrossOrigin(originPatterns = "*")
     public ResponseEntity<List<SummaryInfoResponseDto>> findSummaryInfo() {
         try {
             return ResponseEntity.ok(employeeService.findSummaryInfo());
@@ -73,7 +70,6 @@ public class ManagerController {
     }
 
     @PostMapping(FIND_ALL_BY_DEPARTMENT_ID)
-    @CrossOrigin(originPatterns = "*")
     public ResponseEntity<List<Employee>> findByDepartmentId(@RequestParam @Valid Long id) {
         try {
             return ResponseEntity.ok(employeeService.findByDepartmentId(id));
@@ -85,7 +81,6 @@ public class ManagerController {
      * Çalışanın izinli olduğunu göstermek için state'ini passive çeken endpoint
      */
     @PostMapping("/changeEmployeeStateToPassive")
-    @CrossOrigin(originPatterns = "*")
     public ResponseEntity<Boolean> changeStatusToPassive (@RequestParam @Valid Long employeeId){
         Optional<Employee> employee = employeeService.findOptionalById(employeeId);
         try {
@@ -105,7 +100,6 @@ public class ManagerController {
      * Çalışanın silinmiş olduğunu göstermek için state'ini deleteye çeken endpoint
      */
     @PostMapping("/changeEmployeeStateToDelete")
-    @CrossOrigin(originPatterns = "*")
     public ResponseEntity<Boolean> changeStatusToDelete (@RequestParam @Valid Long employeeId){
         Optional<Employee> employee = employeeService.findOptionalById(employeeId);
         try {
@@ -124,19 +118,16 @@ public class ManagerController {
     /**
      * Tüm employee'leri liste olarak dönen endpoint. Frontendde istenilen bilgiler özet şeklinde geri dönülecek
      */
-    @PostMapping("/findAllEmployee")
-    @CrossOrigin(originPatterns = "*")
+    @GetMapping("/findAllEmployee")
     public ResponseEntity<List<Employee>>findAllEmployee(){
         return ResponseEntity.ok(employeeService.findAll());
     }
 
     @GetMapping("/findbyid/{id}")
-    @CrossOrigin(originPatterns = "*")
     public ResponseEntity<Employee> findById(@PathVariable  Long  id){
         return ResponseEntity.ok(employeeService.findById(id));
     }
     @PostMapping("/updatebyid/{id}")
-    @CrossOrigin(originPatterns = "*")
     public ResponseEntity<Boolean> updateEmployee(@PathVariable  Long id,@RequestBody  UpdateEmployeeRequestDto updateEmployeeRequestDto) {
         try {
             employeeService.updateEmployee(id,updateEmployeeRequestDto);
