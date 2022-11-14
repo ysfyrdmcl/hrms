@@ -27,7 +27,7 @@ public class CreateEmployeeRequestDto {
     @NotBlank
     @NotEmpty
     private String lastName;
-    private State state = State.ACTIVE;
+    private State state ;
     @Email
     @NotNull
     @NotBlank

@@ -9,6 +9,7 @@ import com.bilgeadam.exception.UserManagerException;
 import com.bilgeadam.repository.IEmployeeRepository;
 import com.bilgeadam.repository.entity.Employee;
 import com.bilgeadam.repository.entity.Person;
+import com.bilgeadam.repository.enums.State;
 import com.bilgeadam.utility.ServiceManager;
 import org.springframework.stereotype.Service;
 
@@ -40,7 +41,7 @@ public class EmployeeService extends ServiceManager<Employee, Long> {
                 .professionId(createEmployeeRequestDto.getProfessionId())
                 .departmentId(createEmployeeRequestDto.getDepartmentId())
                 .addressId(createEmployeeRequestDto.getAddressId())
-                .state(createEmployeeRequestDto.getState())
+                .state(State.ACTIVE)
                 .emailAddress(createEmployeeRequestDto
                         .getEmailAddress()).build());
 

@@ -1,9 +1,6 @@
 package com.bilgeadam.repository.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -13,6 +10,7 @@ import javax.persistence.*;
 @Builder
 @Table(name = "managers")
 @Entity
+@EqualsAndHashCode(callSuper=false)
 public class Manager extends Person{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
